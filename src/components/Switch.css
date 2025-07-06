@@ -1,0 +1,56 @@
+.button{
+    border: 1px solid;
+    width: 160px;
+    height: 80px;
+    position: relative;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: #140a0a;
+   
+}
+.on_button {
+  transform: translateX(70px);
+  background-color: aquamarine;
+  -webkit-transform: translateX(70px);
+  -moz-transform: translateX(70px);
+  -ms-transform: translateX(70px);
+  -o-transform: translateX(70px);
+}
+.off_button{ transform: translateX(0); background-color: gray; -webkit-transform: translateX(0); -moz-transform: translateX(0); -ms-transform: translateX(0); -o-transform: translateX(0);
+}
+.on_button .round{
+    border: 3px solid rgb(232, 247, 97);
+}
+.round{
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    border: 3px solid white;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition:all 0.5s linear ;
+    -webkit-transition:all 0.5s linear ;
+    -moz-transition:all 0.5s linear ;
+    -ms-transition:all 0.5s linear ;
+    -o-transition:all 0.5s linear ;
+}
+.text{
+    font-size: 20px;
+    font-weight: 500;
+    color: aliceblue;
+}
+.on_text{
+    color:blue;
+}
