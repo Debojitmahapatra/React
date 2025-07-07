@@ -4,7 +4,7 @@ import { Netflix_Series } from "./components/Netflix";
 // import { WebSeriesGallery } from "./components/Webseries.jsx";
 // import './components/Netflix.module.css'
 import './App.css'
-import { State } from './components/hooks/state'
+// import { State } from './components/hooks/state'
 import { Heading } from "./components/Heading";
 export const App=()=>{
   return (
@@ -12,7 +12,7 @@ export const App=()=>{
     <Heading id='Welcome to Our WebSeries'/>
       <Netflix_Series/>
 <Heading id='Thank You for visit'/>
-         <State />
+         
     </>
   )
 }
