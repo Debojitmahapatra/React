@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Todo.css'
 import { MdDeleteForever,MdCheck  } from "react-icons/md";
 
 export const Todo=()=>{
     const [inputVal,setInputVal]=useState('')
     const [Arr,setArr]=useState([])
+    const [date,setDate]=useState(new Date())
     const handleInput=(val)=>{
         setInputVal(val)
     }
@@ -19,11 +20,29 @@ export const Todo=()=>{
         console.log(Arr);
         setInputVal("")
     }
+    //? to add date and time
+    // let date=new Date()
+
+    useEffect(()=>{
+        let newDate=new Date()
+         let modeDate=newDate.toLocaleDateString()
+      let modeTime=newDate.toLocaleTimeString()
+   let interVal= setInterval(()=>{
+         setDate(`${modeDate} - ${modeTime}`)
+      },1000)
+      return()=>clearInterval(newDate)
+    },[])
+    
+      
+    
+      
     return (
         <section className='todo-container'>
             <header>
                 <h1>Todo List</h1>
+                <h2 className='date-time'>{date}</h2>
             </header>
+
             <section className='form'>
                 <form onSubmit={handleFormSubmit}>
                     <div>
