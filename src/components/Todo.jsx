@@ -11,18 +11,34 @@ export const Todo = () => {
    
    
     const handleFormSubmit = (inputVal) => {
-        if (!inputVal) return
-        if (Arr.includes(inputVal.trim()) || inputVal.trim().length == 0) return
-        setArr((preVal) => [...preVal, inputVal])
+        const {id,content,checked}=inputVal
+        if (!content.trim()) return
+        const IfTodoMatch=Arr.find((curr)=>curr.content===content)
+        if (IfTodoMatch) return
+        setArr((preVal) => [...preVal, {id,content,checked}])
       
     }
  
     //? one item delete button
-    const handleCheckList=(val)=>{
-        let newArr=Arr.filter((curr)=>curr!=val)   
+    const handleDeleteList=(val)=>{
+        let newArr=Arr.filter((curr)=>curr.content!=val)   
         setArr(newArr) 
         console.log(Arr);
         
+    }
+    //? handle item check button
+    const handleCheckList=(val)=>{
+        console.log(val)
+      let IfCheck=Arr.map((curr)=>{
+        if(curr.content===val){
+             
+            return {...curr,checked:!curr.checked}
+        }
+        else{
+            return curr
+        }    
+      })
+      setArr(IfCheck)
     }
     //? clear button
 
@@ -43,9 +59,11 @@ export const Todo = () => {
                     {
                         Arr.map((currEle, index) => {
                             return <TodoList 
-                            key={index} 
-                            data={currEle}
-                            onHandleDeleteTodo={handleCheckList}
+                            key={currEle.id} 
+                            data={currEle.content}
+                            checked={currEle.checked}
+                            onHandleDeleteTodo={handleDeleteList}
+                            onHandleCheckTodo={handleCheckList}
                             />
                         })
                     }
