@@ -4,10 +4,12 @@ import './Todo.css'
 import { TodoForm } from './TodoForm';
 import { TodoList } from './TodoList';
 import { TodoDataTime } from './TodoDateTime';
+import { GetDataFromLocalStorage, SetDataToLocalStorage } from './TodoLocalStorage';
+
 
 export const Todo = () => {
    
-    const [Arr, setArr] = useState([])
+    const [Arr, setArr] = useState(()=>GetDataFromLocalStorage())
    
    
     const handleFormSubmit = (inputVal) => {
@@ -18,6 +20,12 @@ export const Todo = () => {
         setArr((preVal) => [...preVal, {id,content,checked}])
       
     }
+  //todo add data in localStorage
+
+//   localStorage.setItem(todoKey,JSON.stringify(Arr))
+    SetDataToLocalStorage(Arr)
+ 
+ 
  
     //? one item delete button
     const handleDeleteList=(val)=>{
